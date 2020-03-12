@@ -1,0 +1,50 @@
+version: '3.5'
+
+services:
+  #Mura Server
+  mura:
+    image: blueriver/muracms:7.1.444
+    environment:
+        MURA_ADMIN_USERNAME: admin
+        MURA_ADMIN_PASSWORD: admin
+        MURA_ADMINEMAIL: example@localhost.com
+        MURA_APPRELOADKEY: appreload
+        MURA_DATASOURCE: muradb
+        MURA_DATABASE: muradb
+        MURA_DBTYPE: mysql
+        MURA_DBCONNECTIONSTRING: "jdbc:mysql://mura_mysql:3306/muradb?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=true"
+        MURA_DBCLASS: com.mysql.jdbc.Driver
+        MURA_DBUSERNAME: root
+        MURA_DBPASSWORD: NOT_SECURE_CHANGE
+        MURA_DBHOST: mura_mysql
+        MURA_DBPORT: 3306
+        MURA_SITEIDINURLS: "false"
+        MURA_INDEXFILEINURLS: "false"
+    volumes:
+        # - ./app/apps:/var/www/apps:cached
+        - ./app/config:/var/www/config:cached
+        # - ./app/etc:/var/www/etc:cached
+        - ./app/modules:/var/www/modules:cached
+        # - ./app/plugins:/var/www/plugins:cached
+        - ./app/themes:/var/www/themes:cached
+        - ./app/sites:/var/www/sites:cached
+    ports:
+        - "8888:8888"
+
+  #MySQL
+  mura_mysql:
+    image: mysql:5.7
+    environment:
+        MYSQL_ROOT_PASSWORD: NOT_SECURE_CHANGE
+        MYSQL_DATABASE: muradb
+    volumes:
+        - mura_mysql_data:/var/lib/mysql
+    ports:
+        - "55555:3306"
+
+volumes:
+    mura_mysql_data:
+    mura_sites_data:
+    mura_modules_data:
+    mura_themes_data:
+    mura_plugins_data:
