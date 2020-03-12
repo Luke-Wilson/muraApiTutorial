@@ -3,7 +3,7 @@ version: '3.5'
 services:
   #Mura Server
   mura:
-    image: blueriver/muracms:7.1.444
+    image: blueriver/muracms:7.1.477
     environment:
         MURA_ADMIN_USERNAME: admin
         MURA_ADMIN_PASSWORD: admin
