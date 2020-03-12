@@ -2,11 +2,9 @@
   This is myTestModule
 
   <script>
-    Mura.getEntity('testservice').invoke('testGetMethod')
-    .then(response => {
-      console.log("Response from testGetMethod")
-      console.log(response)
-    });
+    // TODO: Handle the resolved promise using the .then() block and log the response from the API
+    Mura.getEntity('thenewerwayservice').invoke('testGetMethod')
+    .then();
 
     const myData = {
       name: "Luke",
@@ -14,10 +12,15 @@
       favoriteColor: "red"
     };
 
-    console.log("trying to send the following data");
+    console.log("the myData object is the content you are trying to send via your POST request");
     console.log(myData);
 
-    Mura.getEntity('testservice').invoke('testPostMethod', {"data": myData}, "post")
+    // TODO: Complete the API call using Mura.getEntity
+    // HINT: The .invoke() method can accept three arguments:
+    // 1) the name of the method you are trying to invoke (string) 
+    // 2) the content of the HTTP request (object)
+    // 3) the type of HTTP request (e.g. "put", "delete", "post") (string)
+    Mura.getEntity(???).invoke(???, ???, ???)
     .then(response => {
       console.log("Response from testPostMethod");
       console.log(response);
