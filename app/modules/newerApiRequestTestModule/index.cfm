@@ -20,7 +20,7 @@
     // 1) the name of the method you are trying to invoke (string) 
     // 2) the content of the HTTP request (object)
     // 3) the type of HTTP request (e.g. "put", "delete", "post") (string)
-    Mura.getEntity(???).invoke(???, ???, ???)
+    Mura.getEntity('thenewerwayservice').invoke('testPostMethod', {data: myData}, 'post')
     .then(response => {
       console.log("Response from testPostMethod");
       console.log(response);
