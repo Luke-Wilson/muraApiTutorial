@@ -3,7 +3,7 @@ version: '3.5'
 services:
   #Mura Server
   mura:
-    image: blueriver/muracms:7.1.444
+    image: blueriver/muracms:7.1.477
     environment:
         MURA_ADMIN_USERNAME: admin
         MURA_ADMIN_PASSWORD: admin
@@ -21,11 +21,8 @@ services:
         MURA_SITEIDINURLS: "false"
         MURA_INDEXFILEINURLS: "false"
     volumes:
-        # - ./app/apps:/var/www/apps:cached
         - ./app/config:/var/www/config:cached
-        # - ./app/etc:/var/www/etc:cached
         - ./app/modules:/var/www/modules:cached
-        # - ./app/plugins:/var/www/plugins:cached
         - ./app/themes:/var/www/themes:cached
         - ./app/sites:/var/www/sites:cached
     ports:
@@ -44,7 +41,3 @@ services:
 
 volumes:
     mura_mysql_data:
-    mura_sites_data:
-    mura_modules_data:
-    mura_themes_data:
-    mura_plugins_data:
