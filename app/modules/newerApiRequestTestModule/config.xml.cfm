@@ -1,5 +1,5 @@
 <displayobject
-  name="My Test Module"
+  name="Newer API request test module"
   contentTypes="*"
   displayObjectFile="index.cfm"
 />
